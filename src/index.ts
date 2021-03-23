@@ -1,4 +1,4 @@
-
+//list of possible winning states
 const winningCombos = [
     [0, 1, 2],
     [3, 4, 5],
@@ -10,7 +10,7 @@ const winningCombos = [
     [2, 4, 6]
 ]
 
-const hasWon = (board, symbol) => {
+const hasWon = (board:Array<string>, symbol:string):boolean => {
     let winner = false
 
     winningCombos.map(combo => {
@@ -21,7 +21,7 @@ const hasWon = (board, symbol) => {
     return winner
 }
 
-const hasDrawn = (board) => {
+const hasDrawn = (board:Array<string>):boolean => {
     let nonEmptySquares = board.filter(x => x)
 
     if (nonEmptySquares.length === board.length) {
@@ -31,7 +31,7 @@ const hasDrawn = (board) => {
 
 }
 
-export const evaluateBoard = (board) => {
+export const evaluateBoard = (board:Array<string>):number => {
 
     const cpuSymbol = "X"
     const playersSymbol = "O"
@@ -46,9 +46,9 @@ export const evaluateBoard = (board) => {
     return 0
 
 }
-const returnEmptyIndexes = (board) => {
+const returnEmptyIndexes = (board:Array<string>):Array<number> => {
 
-    let emptyIndexes = []
+    let emptyIndexes:Array<number> = []
 
     board.forEach((square, index) => {
         if (square === "") {
@@ -59,7 +59,7 @@ const returnEmptyIndexes = (board) => {
     return emptyIndexes
 }
 
-export const bestMove = (board, currentSymbol) => {
+export const bestMove = (board:Array<string>, currentSymbol:string):number => {
 
     let newBoard = board.slice()
     const emptyIndexes = returnEmptyIndexes(board)
@@ -83,7 +83,7 @@ export const bestMove = (board, currentSymbol) => {
     return bestMove;
 }
 
-export const minimax = (board, depth, playersTurn) => {
+export const minimax = (board:Array<string>, depth:number, playersTurn:boolean):number => {
 
     let score = evaluateBoard(board)
 
@@ -98,7 +98,7 @@ export const minimax = (board, depth, playersTurn) => {
     }
 
     if (!playersTurn) {
-        const bestMaximValue = board.reduce((currentBest, square, index) => {
+        const bestMaximValue = board.reduce((currentBest:number, square:string, index:number):number => {
             let newBoard = board.slice()
 
             if (square === "") {
@@ -115,7 +115,7 @@ export const minimax = (board, depth, playersTurn) => {
         return bestMaximValue
     }
 
-    const bestMinimValue = board.reduce((currentBest, square, index) => {
+    const bestMinimValue = board.reduce((currentBest:number, square:string, index:number):number => {
         let newBoard = board.slice()
 
         if (square === "") {

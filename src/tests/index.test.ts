@@ -3,30 +3,30 @@ const evaluateBoard = require("../index").evaluateBoard
 const minimax = require("../index").minimax
 
 //use test board for novel test cases - ai logic and decisions will be logged allowing for greater transparency
-let testBoard = [
+let testBoard:Array<string> = [
     "O", "", "X",
     "", "", "",
     "", "", "X"
 ]
 
-let cpuWinBoard = [
+let cpuWinBoard:Array<string> = [
     "O", "", "X",
     "", "", "",
     "", "", "X"
 ]
 
-let playerWinBoard = [
+let playerWinBoard:Array<string> = [
     "O", "O", "",
     "", "", "",
     "", "", ""
 ]
 //
-let earlyGameBoard = [
+let earlyGameBoard:Array<string> = [
     "O", "", "",
     "", "", "",
     "", "", ""
 ]
-let emptyBoard = [
+let emptyBoard:Array<string> = [
     "", "", "",
     "", "", "",
     "", "", ""
@@ -45,7 +45,7 @@ test("the best move for the testBoard is", () => {
     const row2 = testBoard.slice(3, 6)
     const row3 = testBoard.slice(6, 9)
     console.log(`\n ${row1} \n ${row2} \n ${row3}`)
-    
+
     const score = minimax(testBoard, 0, true)
     console.log(`With a score of ${score}`);
     testBoard[cpuMove] = ""
