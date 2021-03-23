@@ -1,0 +1,46 @@
+{
+    "compilerOptions": {
+
+      //which ecma script to use
+      "target": "ES6",
+      //the directory the bundle will be packed into
+      "outDir":"./build/",
+      //use common js modules
+      //"module": "commonjs",
+      //no unused local variables
+      "noUnusedLocals": false,
+      //as above for parameters
+      "noUnusedParameters": true,
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      //allows compiling of js
+      "allowJs": true,
+      //allows default importing of modules with no default export
+      "allowSyntheticDefaultImports": true,
+      //skips type checking of type declaration files at compile time
+      "skipLibCheck": false,
+      //allows importing common modules using es6 syntax (import vs require)
+      "esModuleInterop": true,
+      //blanked option for:
+      // - Use implicit Any
+      // - Strict bind call apply (checks function argument types)
+      // - Strict function types (don't fully understand this one)
+      // - Strict null checks (defines type for, and effectively ignores, nulls and undefineds)
+      // - strict property initialisation (raises error when class property delcared but not initialised)
+      "strict": true,
+      //forces casing in i.e. import statements to be consistent with file name casing
+      "forceConsistentCasingInFileNames": true,
+      //specificy module resolution strategy (node or classic)
+      "moduleResolution": "node",
+      //prohibits any elements from having implicit any type
+      "noImplicitAny": true,
+      //allows importing of json modules, false by default
+      "resolveJsonModule": true,
+      //limits typescript to type checking and allows webpack to handle compiling/bundling **IMPORTANT?**
+      "noEmit": true,
+      //specifies how jsx constructs are dealt with
+      "jsx": "react"
+    },
+    //all files for typescript to check
+    "include": ["src"]
+  }
